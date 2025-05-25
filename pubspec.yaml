@@ -1,0 +1,35 @@
+name: server_monitor
+description: Un'applicazione Flutter per monitorare le risorse del server via SSH
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # SSH Client per connettersi al server
+  dartssh2: ^2.9.0
+  
+  # Grafici
+  fl_chart: ^0.66.0
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # UI e Utility
+  cupertino_icons: ^1.0.6
+  shared_preferences: ^2.2.2
+  
+  # Indicatori di caricamento
+  flutter_spinkit: ^5.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
