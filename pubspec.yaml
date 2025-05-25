@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   
   # SSH Client per connettersi al server
   dartssh2: ^2.9.0
@@ -25,6 +27,9 @@ dependencies:
   
   # Indicatori di caricamento
   flutter_spinkit: ^5.2.0
+  
+  # Internazionalizzazione
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:
@@ -33,3 +38,4 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true

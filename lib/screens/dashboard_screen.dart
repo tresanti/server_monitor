@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../services/server_provider.dart';
 import '../widgets/cpu_chart.dart';
 import '../widgets/ram_chart.dart';
@@ -48,15 +49,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Server Monitor'),
+        title: Text(l10n.appTitle),
         centerTitle: true,
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: _disconnect,
-            tooltip: 'Disconnetti',
+            tooltip: l10n.disconnect,
           ),
         ],
       ),
@@ -74,7 +77,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Errore',
+                    l10n.error,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(height: 8),
@@ -87,7 +90,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ElevatedButton.icon(
                     onPressed: provider.refreshData,
                     icon: const Icon(Icons.refresh),
-                    label: const Text('Riprova'),
+                    label: Text(l10n.retry),
                   ),
                 ],
               ),
@@ -114,17 +117,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     children: [
                       Expanded(
                         child: ResourceCard(
-                          title: 'CPU',
+                          title: l10n.cpu,
                           value: '${resources.cpuUsage.toStringAsFixed(1)}%',
                           icon: Icons.memory,
                           color: Colors.blue,
-                          subtitle: 'Load: ${resources.loadAvg1.toStringAsFixed(2)}',
+                          subtitle: '${l10n.load}: ${resources.loadAvg1.toStringAsFixed(2)}',
                         ),
                       ),
                       const SizedBox(width: 16),
                       Expanded(
                         child: ResourceCard(
-                          title: 'RAM',
+                          title: l10n.ram,
                           value: '${resources.ramUsagePercentage.toStringAsFixed(1)}%',
                           icon: Icons.storage,
                           color: Colors.green,
@@ -143,7 +146,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Utilizzo CPU nel tempo',
+                            l10n.cpuUsageOverTime,
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           const SizedBox(height: 16),
@@ -167,7 +170,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Utilizzo RAM nel tempo',
+                            l10n.ramUsageOverTime,
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           const SizedBox(height: 16),
@@ -192,7 +195,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Utilizzo Disco',
+                            l10n.diskUsage,
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           const SizedBox(height: 16),
@@ -216,7 +219,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Dettagli Dischi',
+                            l10n.diskDetails,
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           const SizedBox(height: 16),
@@ -270,7 +273,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   )
                 : const Icon(Icons.refresh),
-            label: Text(provider.isLoading ? 'Aggiornamento...' : 'Aggiorna'),
+            label: Text(provider.isLoading ? l10n.updating : l10n.update),
           );
         },
       ),

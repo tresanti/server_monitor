@@ -62,6 +62,10 @@ flutter_spinkit
 2.12
 file:///home/ivan/.pub-cache/hosted/pub.dev/flutter_spinkit-5.2.1/
 file:///home/ivan/.pub-cache/hosted/pub.dev/flutter_spinkit-5.2.1/lib/
+intl
+3.0
+file:///home/ivan/.pub-cache/hosted/pub.dev/intl-0.19.0/
+file:///home/ivan/.pub-cache/hosted/pub.dev/intl-0.19.0/lib/
 js
 3.7
 file:///home/ivan/.pub-cache/hosted/pub.dev/js-0.7.2/
@@ -218,6 +222,10 @@ flutter
 3.7
 file:///home/ivan/development/flutter_linux_3.29.3-stable/flutter/packages/flutter/
 file:///home/ivan/development/flutter_linux_3.29.3-stable/flutter/packages/flutter/lib/
+flutter_localizations
+3.7
+file:///home/ivan/development/flutter_linux_3.29.3-stable/flutter/packages/flutter_localizations/
+file:///home/ivan/development/flutter_linux_3.29.3-stable/flutter/packages/flutter_localizations/lib/
 flutter_test
 3.7
 file:///home/ivan/development/flutter_linux_3.29.3-stable/flutter/packages/flutter_test/

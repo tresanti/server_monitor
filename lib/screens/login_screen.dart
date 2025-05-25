@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../services/server_provider.dart';
 import '../services/saved_servers_service.dart';
 import '../models/saved_server.dart';
@@ -148,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       if (_currentPage == servers.length)
                         Text(
-                          'Scorri per vedere i server salvati',
+                          AppLocalizations.of(context)!.scrollToSeeSavedServers,
                           style: TextStyle(
                             color: Colors.grey[600],
                             fontSize: 12,
@@ -156,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         )
                       else
                         Text(
-                          '${_currentPage + 1} di ${servers.length} server',
+                          AppLocalizations.of(context)!.serverCount(_currentPage + 1, servers.length),
                           style: TextStyle(
                             color: Colors.grey[600],
                             fontSize: 12,
@@ -296,42 +297,43 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
   }
   
   void _showErrorDialog(String? errorMessage) {
+    final l10n = AppLocalizations.of(context)!;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Errore di connessione'),
+        title: Text(l10n.connectionError),
         content: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
-                'Dettagli dell\'errore:',
-                style: TextStyle(fontWeight: FontWeight.bold),
+              Text(
+                l10n.errorDetails,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               Text(
-                errorMessage ?? 'Errore sconosciuto',
+                errorMessage ?? l10n.unknownError,
                 style: const TextStyle(fontFamily: 'monospace', fontSize: 12),
               ),
               const SizedBox(height: 16),
-              const Text(
-                'Verifica:',
-                style: TextStyle(fontWeight: FontWeight.bold),
+              Text(
+                l10n.verify,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 4),
-              const Text('• L\'hostname/IP è corretto'),
-              const Text('• La porta SSH è corretta (default: 22)'),
-              const Text('• Username e password sono corretti'),
-              const Text('• Il server SSH è attivo e raggiungibile'),
-              const Text('• Il firewall permette la connessione'),
+              Text(l10n.verifyHostname),
+              Text(l10n.verifyPort),
+              Text(l10n.verifyCredentials),
+              Text(l10n.verifyServerActive),
+              Text(l10n.verifyFirewall),
             ],
           ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('OK'),
+            child: Text(l10n.ok),
           ),
         ],
       ),
@@ -339,15 +341,16 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
   }
   
   void _confirmDelete() {
+    final l10n = AppLocalizations.of(context)!;
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Elimina server'),
-        content: Text('Vuoi eliminare il server "${widget.server.name}"?'),
+        title: Text(l10n.deleteServer),
+        content: Text(l10n.deleteServerConfirm(widget.server.name)),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Annulla'),
+            child: Text(l10n.cancel),
           ),
           TextButton(
             onPressed: () {
@@ -357,7 +360,7 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
             style: TextButton.styleFrom(
               foregroundColor: Colors.red,
             ),
-            child: const Text('Elimina'),
+            child: Text(l10n.delete),
           ),
         ],
       ),
@@ -366,6 +369,7 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
   
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
@@ -401,14 +405,14 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'Server Monitor',
+                      l10n.appTitle,
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Connetti al server',
+                      l10n.connectToServer,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: Colors.grey[600],
                       ),
@@ -416,14 +420,14 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                     const SizedBox(height: 32),
                     TextFormField(
                       controller: _nameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Nome server',
-                        prefixIcon: Icon(Icons.label),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n.serverName,
+                        prefixIcon: const Icon(Icons.label),
+                        border: const OutlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Inserisci un nome per il server';
+                          return l10n.enterServerName;
                         }
                         return null;
                       },
@@ -431,14 +435,14 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                     const SizedBox(height: 16),
                     TextFormField(
                       controller: _hostnameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Hostname/IP',
-                        prefixIcon: Icon(Icons.dns),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n.hostnameIp,
+                        prefixIcon: const Icon(Icons.dns),
+                        border: const OutlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Inserisci l\'hostname o l\'IP';
+                          return l10n.enterHostname;
                         }
                         return null;
                       },
@@ -446,14 +450,14 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                     const SizedBox(height: 16),
                     TextFormField(
                       controller: _usernameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Username',
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n.username,
+                        prefixIcon: const Icon(Icons.person),
+                        border: const OutlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Inserisci l\'username';
+                          return l10n.enterUsername;
                         }
                         return null;
                       },
@@ -463,7 +467,7 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                       controller: _passwordController,
                       obscureText: !_isPasswordVisible,
                       decoration: InputDecoration(
-                        labelText: 'Password',
+                        labelText: l10n.password,
                         prefixIcon: const Icon(Icons.lock),
                         border: const OutlineInputBorder(),
                         suffixIcon: IconButton(
@@ -481,7 +485,7 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Inserisci la password';
+                          return l10n.enterPassword;
                         }
                         return null;
                       },
@@ -490,16 +494,16 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                     TextFormField(
                       controller: _portController,
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
-                        labelText: 'Porta SSH (default: 22)',
-                        prefixIcon: Icon(Icons.settings_ethernet),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n.sshPort,
+                        prefixIcon: const Icon(Icons.settings_ethernet),
+                        border: const OutlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value != null && value.isNotEmpty) {
                           final port = int.tryParse(value);
                           if (port == null || port < 1 || port > 65535) {
-                            return 'Porta non valida';
+                            return l10n.invalidPort;
                           }
                         }
                         return null;
@@ -508,7 +512,7 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                     if (_hasChanges) ...[
                       const SizedBox(height: 16),
                       Text(
-                        'Le modifiche verranno salvate automaticamente',
+                        l10n.changesWillBeSaved,
                         style: TextStyle(
                           color: Colors.orange[700],
                           fontSize: 12,
@@ -537,8 +541,8 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                               : const Icon(Icons.login),
                             label: Text(
                               provider.isLoading 
-                                ? 'Connessione in corso...' 
-                                : 'Connetti',
+                                ? l10n.connecting 
+                                : l10n.connect,
                             ),
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
@@ -616,6 +620,7 @@ class _AddNewServerPageState extends State<_AddNewServerPage> {
   
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
@@ -648,14 +653,14 @@ class _AddNewServerPageState extends State<_AddNewServerPage> {
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'Aggiungi nuovo server',
+                      l10n.addNewServer,
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Inserisci le informazioni del server',
+                      l10n.enterServerInfo,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                         color: Colors.grey[600],
                       ),
@@ -663,14 +668,14 @@ class _AddNewServerPageState extends State<_AddNewServerPage> {
                     const SizedBox(height: 32),
                     TextFormField(
                       controller: _nameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Nome server',
-                        prefixIcon: Icon(Icons.label),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n.serverName,
+                        prefixIcon: const Icon(Icons.label),
+                        border: const OutlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Inserisci un nome per il server';
+                          return l10n.enterServerName;
                         }
                         return null;
                       },
@@ -678,14 +683,14 @@ class _AddNewServerPageState extends State<_AddNewServerPage> {
                     const SizedBox(height: 16),
                     TextFormField(
                       controller: _hostnameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Hostname/IP',
-                        prefixIcon: Icon(Icons.dns),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n.hostnameIp,
+                        prefixIcon: const Icon(Icons.dns),
+                        border: const OutlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Inserisci l\'hostname o l\'IP';
+                          return l10n.enterHostname;
                         }
                         return null;
                       },
@@ -693,14 +698,14 @@ class _AddNewServerPageState extends State<_AddNewServerPage> {
                     const SizedBox(height: 16),
                     TextFormField(
                       controller: _usernameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Username',
-                        prefixIcon: Icon(Icons.person),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n.username,
+                        prefixIcon: const Icon(Icons.person),
+                        border: const OutlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Inserisci l\'username';
+                          return l10n.enterUsername;
                         }
                         return null;
                       },
@@ -710,7 +715,7 @@ class _AddNewServerPageState extends State<_AddNewServerPage> {
                       controller: _passwordController,
                       obscureText: !_isPasswordVisible,
                       decoration: InputDecoration(
-                        labelText: 'Password',
+                        labelText: l10n.password,
                         prefixIcon: const Icon(Icons.lock),
                         border: const OutlineInputBorder(),
                         suffixIcon: IconButton(
@@ -728,7 +733,7 @@ class _AddNewServerPageState extends State<_AddNewServerPage> {
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Inserisci la password';
+                          return l10n.enterPassword;
                         }
                         return null;
                       },
@@ -737,16 +742,16 @@ class _AddNewServerPageState extends State<_AddNewServerPage> {
                     TextFormField(
                       controller: _portController,
                       keyboardType: TextInputType.number,
-                      decoration: const InputDecoration(
-                        labelText: 'Porta SSH (default: 22)',
-                        prefixIcon: Icon(Icons.settings_ethernet),
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        labelText: l10n.sshPort,
+                        prefixIcon: const Icon(Icons.settings_ethernet),
+                        border: const OutlineInputBorder(),
                       ),
                       validator: (value) {
                         if (value != null && value.isNotEmpty) {
                           final port = int.tryParse(value);
                           if (port == null || port < 1 || port > 65535) {
-                            return 'Porta non valida';
+                            return l10n.invalidPort;
                           }
                         }
                         return null;
@@ -759,7 +764,7 @@ class _AddNewServerPageState extends State<_AddNewServerPage> {
                       child: ElevatedButton.icon(
                         onPressed: _addServer,
                         icon: const Icon(Icons.save),
-                        label: const Text('Salva server'),
+                        label: Text(l10n.saveServer),
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
