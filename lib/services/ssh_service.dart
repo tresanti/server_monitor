@@ -110,8 +110,7 @@ class SSHService {
     final session = await _client!.execute(command);
   
     final output = await utf8.decodeStream(session.stdout);
-     // ignore: avoid_print
-    print('Executing command: $output');
+  
     session.close();
     return output;
   }

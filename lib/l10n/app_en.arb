@@ -1,0 +1,253 @@
+{
+  "@@locale": "en",
+  "appTitle": "Server Monitor",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "connectToServer": "Connect to server",
+  "@connectToServer": {
+    "description": "Connect to server subtitle"
+  },
+  "connectToYourServer": "Connect to your server via SSH",
+  "@connectToYourServer": {
+    "description": "Login screen subtitle"
+  },
+  "serverName": "Server name",
+  "@serverName": {
+    "description": "Server name field label"
+  },
+  "hostnameIp": "Hostname/IP",
+  "@hostnameIp": {
+    "description": "Hostname or IP field label"
+  },
+  "username": "Username",
+  "@username": {
+    "description": "Username field label"
+  },
+  "password": "Password",
+  "@password": {
+    "description": "Password field label"
+  },
+  "sshPort": "SSH Port (default: 22)",
+  "@sshPort": {
+    "description": "SSH port field label"
+  },
+  "connect": "Connect",
+  "@connect": {
+    "description": "Connect button label"
+  },
+  "connecting": "Connecting...",
+  "@connecting": {
+    "description": "Connecting status"
+  },
+  "connectionError": "Connection Error",
+  "@connectionError": {
+    "description": "Connection error dialog title"
+  },
+  "errorDetails": "Error details:",
+  "@errorDetails": {
+    "description": "Error details label"
+  },
+  "unknownError": "Unknown error",
+  "@unknownError": {
+    "description": "Unknown error message"
+  },
+  "verify": "Verify:",
+  "@verify": {
+    "description": "Verify label"
+  },
+  "verifyHostname": "• Hostname/IP is correct",
+  "@verifyHostname": {
+    "description": "Verify hostname message"
+  },
+  "verifyPort": "• SSH port is correct (default: 22)",
+  "@verifyPort": {
+    "description": "Verify port message"
+  },
+  "verifyCredentials": "• Username and password are correct",
+  "@verifyCredentials": {
+    "description": "Verify credentials message"
+  },
+  "verifyServerActive": "• SSH server is active and reachable",
+  "@verifyServerActive": {
+    "description": "Verify server active message"
+  },
+  "verifyFirewall": "• Firewall allows the connection",
+  "@verifyFirewall": {
+    "description": "Verify firewall message"
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button"
+  },
+  "delete": "Delete",
+  "@delete": {
+    "description": "Delete button"
+  },
+  "deleteServer": "Delete server",
+  "@deleteServer": {
+    "description": "Delete server dialog title"
+  },
+  "deleteServerConfirm": "Do you want to delete the server \"{serverName}\"?",
+  "@deleteServerConfirm": {
+    "description": "Delete server confirmation message",
+    "placeholders": {
+      "serverName": {
+        "type": "String",
+        "example": "My Server"
+      }
+    }
+  },
+  "changesWillBeSaved": "Changes will be saved automatically",
+  "@changesWillBeSaved": {
+    "description": "Changes will be saved message"
+  },
+  "addNewServer": "Add new server",
+  "@addNewServer": {
+    "description": "Add new server title"
+  },
+  "enterServerInfo": "Enter server information",
+  "@enterServerInfo": {
+    "description": "Enter server info subtitle"
+  },
+  "saveServer": "Save server",
+  "@saveServer": {
+    "description": "Save server button"
+  },
+  "scrollToSeeSavedServers": "Swipe to see saved servers",
+  "@scrollToSeeSavedServers": {
+    "description": "Scroll hint for saved servers"
+  },
+  "serverCount": "{current} of {total} servers",
+  "@serverCount": {
+    "description": "Server count indicator",
+    "placeholders": {
+      "current": {
+        "type": "int",
+        "example": "1"
+      },
+      "total": {
+        "type": "int",
+        "example": "3"
+      }
+    }
+  },
+  "enterServerName": "Enter a server name",
+  "@enterServerName": {
+    "description": "Server name validation message"
+  },
+  "enterHostname": "Enter hostname or IP",
+  "@enterHostname": {
+    "description": "Hostname validation message"
+  },
+  "enterUsername": "Enter username",
+  "@enterUsername": {
+    "description": "Username validation message"
+  },
+  "enterPassword": "Enter password",
+  "@enterPassword": {
+    "description": "Password validation message"
+  },
+  "invalidPort": "Invalid port",
+  "@invalidPort": {
+    "description": "Invalid port validation message"
+  },
+  "resources": "Resources",
+  "@resources": {
+    "description": "Resources title"
+  },
+  "cpu": "CPU",
+  "@cpu": {
+    "description": "CPU label"
+  },
+  "ram": "RAM",
+  "@ram": {
+    "description": "RAM label"
+  },
+  "disk": "Disk",
+  "@disk": {
+    "description": "Disk label"
+  },
+  "used": "Used",
+  "@used": {
+    "description": "Used label"
+  },
+  "free": "Free",
+  "@free": {
+    "description": "Free label"
+  },
+  "usage": "Usage",
+  "@usage": {
+    "description": "Usage label"
+  },
+  "loadingData": "Loading data...",
+  "@loadingData": {
+    "description": "Loading data message"
+  },
+  "connectionLost": "Connection lost",
+  "@connectionLost": {
+    "description": "Connection lost message"
+  },
+  "lastUpdate": "Last update: {time}",
+  "@lastUpdate": {
+    "description": "Last update time",
+    "placeholders": {
+      "time": {
+        "type": "String",
+        "example": "12:34:56"
+      }
+    }
+  },
+  "system": "System",
+  "@system": {
+    "description": "System label"
+  },
+  "swap": "Swap",
+  "@swap": {
+    "description": "Swap label"
+  },
+  "disconnect": "Disconnect",
+  "@disconnect": {
+    "description": "Disconnect tooltip"
+  },
+  "error": "Error",
+  "@error": {
+    "description": "Error label"
+  },
+  "retry": "Retry",
+  "@retry": {
+    "description": "Retry button"
+  },
+  "load": "Load",
+  "@load": {
+    "description": "CPU load label"
+  },
+  "cpuUsageOverTime": "CPU usage over time",
+  "@cpuUsageOverTime": {
+    "description": "CPU chart title"
+  },
+  "ramUsageOverTime": "RAM usage over time",
+  "@ramUsageOverTime": {
+    "description": "RAM chart title"
+  },
+  "diskUsage": "Disk Usage",
+  "@diskUsage": {
+    "description": "Disk usage title"
+  },
+  "diskDetails": "Disk Details",
+  "@diskDetails": {
+    "description": "Disk details title"
+  },
+  "updating": "Updating...",
+  "@updating": {
+    "description": "Updating status"
+  },
+  "update": "Update",
+  "@update": {
+    "description": "Update button"
+  }
+}
