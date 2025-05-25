@@ -1,0 +1,13 @@
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/server_monitor
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/icudtl.dat
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/lib/libflutter_linux_gtk.so
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.json
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/flutter_assets/NativeAssetsManifest.json
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/flutter_assets/FontManifest.json
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/flutter_assets/NOTICES.Z
+/home/ivan/Scrivania/server_monitor/build/linux/x64/debug/bundle/data/flutter_assets/version.json
