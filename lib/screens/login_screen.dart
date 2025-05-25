@@ -391,10 +391,10 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const SizedBox(width: 40),
-                        Icon(
-                          Icons.monitor,
-                          size: 64,
-                          color: Theme.of(context).primaryColor,
+                        Image.asset(
+                          'assets/icons/linux_128.png', // Cambia con il nome reale del file
+                          width: 92,
+                          height: 92,
                         ),
                         IconButton(
                           icon: const Icon(Icons.delete_outline),
@@ -403,7 +403,7 @@ class _ServerLoginPageState extends State<_ServerLoginPage> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 8),
                     Text(
                       l10n.appTitle,
                       style: Theme.of(context).textTheme.headlineMedium?.copyWith(

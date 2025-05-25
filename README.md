@@ -1,129 +1,129 @@
-# Server Monitor - App Flutter per Monitoraggio Risorse Server
+# Server Monitor - Flutter App for Server Resource Monitoring
 
-Un'applicazione Flutter che consente di connettersi a un server Linux via SSH e monitorare in tempo reale l'utilizzo delle risorse (CPU, RAM, Disco).
+A Flutter application that allows you to connect to a Linux server via SSH and monitor resource usage (CPU, RAM, Disk) in real-time.
 
-## Caratteristiche
+## Features
 
-- ✅ Connessione sicura via SSH con autenticazione password
-- 📊 Grafici in tempo reale per CPU e RAM
-- 💾 Visualizzazione utilizzo disco con grafici a torta
-- 🔄 Aggiornamento automatico ogni 10 secondi
-- 🔃 Pulsante di refresh manuale
-- 📱 Interfaccia Material Design moderna e responsive
+- ✅ Secure SSH connection with password authentication
+- 📊 Real-time charts for CPU and RAM
+- 💾 Disk usage visualization with pie charts
+- 🔄 Automatic refresh every 5 seconds
+- 🔃 Manual refresh button
+- 📱 Modern and responsive Material Design interface
 
-## Prerequisiti
+## Prerequisites
 
 - Flutter SDK (>= 3.0.0)
 - Dart SDK
-- Un server Linux con accesso SSH abilitato
+- A Linux server with SSH access enabled
 
-## Installazione
+## Installation
 
-1. Clona o scarica il progetto
-2. Naviga nella directory del progetto:
-   ```bash
-   cd server_monitor
-   ```
-3. Installa le dipendenze:
-   ```bash
-   flutter pub get
-   ```
-4. Esegui l'applicazione:
-   ```bash
-   flutter run
-   ```
+1.  Clone or download the project
+2.  Navigate to the project directory:
+    ```bash
+    cd server_monitor
+    ```
+3.  Install dependencies:
+    ```bash
+    flutter pub get
+    ```
+4.  Run the application:
+    ```bash
+    flutter run
+    ```
 
-## Utilizzo
+## Usage
 
-### 1. Schermata di Login
-- **Hostname/IP**: Inserisci l'indirizzo IP o hostname del tuo server
-- **Username**: Il tuo username SSH
-- **Password**: La tua password SSH
-- **Porta**: Porta SSH (default: 22)
+### 1. Login Screen
+- **Hostname/IP**: Enter your server's IP address or hostname
+- **Username**: Your SSH username
+- **Password**: Your SSH password
+- **Port**: SSH port (default: 22)
 
 ### 2. Dashboard
-Una volta connesso, vedrai:
-- **Cards superiori**: Mostrano l'utilizzo corrente di CPU e RAM
-- **Grafico CPU**: Mostra l'andamento dell'utilizzo CPU nel tempo
-- **Grafico RAM**: Mostra l'andamento dell'utilizzo RAM nel tempo
-- **Grafico Disco**: Grafico a torta con l'utilizzo dei vari filesystem
-- **Dettagli Dischi**: Lista dettagliata con barre di progresso per ogni partizione
+Once connected, you will see:
+- **Top Cards**: Show current CPU and RAM usage
+- **CPU Chart**: Shows CPU usage trend over time
+- **RAM Chart**: Shows RAM usage trend over time
+- **Disk Chart**: Pie chart showing the usage of various filesystems
+- **Disk Details**: Detailed list with progress bars for each partition
 
-## Comandi Linux Utilizzati
+## Linux Commands Used
 
-L'app esegue i seguenti comandi sul server per raccogliere i dati:
+The app executes the following commands on the server to collect data:
 
-- `free -m` - Per informazioni sulla memoria RAM
-- `df -h` - Per informazioni sull'utilizzo del disco
-- `cat /proc/loadavg` - Per il load average del sistema
-- `top -b -n 1 | grep "Cpu(s)"` - Per l'utilizzo della CPU
+- `free -m` - For RAM memory information
+- `df -h` - For disk usage information
+- `cat /proc/loadavg` - For system load average
+- `top -b -n 1 | grep "Cpu(s)"` - For CPU usage
 
-## Struttura del Progetto
+## Project Structure
 
 ```
 server_monitor/
 ├── lib/
-│   ├── main.dart                 # Entry point dell'app
+│   ├── main.dart                 # App entry point
 │   ├── models/
-│   │   └── server_resources.dart # Modelli dati
+│   │   └── server_resources.dart # Data models
 │   ├── services/
-│   │   ├── ssh_service.dart      # Gestione connessione SSH
+│   │   ├── ssh_service.dart      # SSH connection management
 │   │   └── server_provider.dart  # State management
 │   ├── screens/
-│   │   ├── login_screen.dart     # Schermata login
-│   │   └── dashboard_screen.dart # Dashboard principale
+│   │   ├── login_screen.dart     # Login screen
+│   │   └── dashboard_screen.dart # Main dashboard
 │   └── widgets/
-│       ├── resource_card.dart    # Card per CPU/RAM
-│       ├── cpu_chart.dart        # Grafico CPU
-│       ├── ram_chart.dart        # Grafico RAM
-│       └── disk_chart.dart       # Grafico disco
-└── pubspec.yaml                  # Dipendenze
+│       ├── resource_card.dart    # Card for CPU/RAM
+│       ├── cpu_chart.dart        # CPU chart
+│       ├── ram_chart.dart        # RAM chart
+│       └── disk_chart.dart       # Disk chart
+└── pubspec.yaml                  # Dependencies
 
 ```
 
-## Dipendenze Principali
+## Main Dependencies
 
-- **dartssh2**: Per la connessione SSH
-- **fl_chart**: Per i grafici
-- **provider**: Per la gestione dello stato
-- **flutter_spinkit**: Per gli indicatori di caricamento
+- **dartssh2**: For SSH connection
+- **fl_chart**: For charts
+- **provider**: For state management
+- **flutter_spinkit**: For loading indicators
 
-## Sicurezza
+## Security
 
-⚠️ **IMPORTANTE**: 
-- Le password SSH vengono mantenute solo in memoria durante la sessione
-- Non vengono salvate permanentemente sul dispositivo
-- Si consiglia l'uso di chiavi SSH per una maggiore sicurezza (feature futura)
+⚠️ **IMPORTANT**:
+- SSH passwords are only kept in memory during the session
+- They are not permanently saved on the device
+- Using SSH keys is recommended for enhanced security (future feature)
 
-## Limitazioni Note
+## Known Limitations
 
-- Attualmente supporta solo autenticazione con password
-- I comandi sono ottimizzati per sistemi Linux/Debian
-- L'output potrebbe variare leggermente tra diverse distribuzioni
+- Currently only supports password authentication
+- Commands are optimized for Linux/Debian systems
+- Output may vary slightly between different distributions
 
-## Possibili Miglioramenti Futuri
+## Possible Future Improvements
 
-- [ ] Supporto per autenticazione con chiave SSH
-- [ ] Salvataggio sicuro delle credenziali
-- [ ] Grafici storici più dettagliati
-- [ ] Notifiche per soglie critiche
-- [ ] Supporto multi-server
+- [ ] Support for SSH key authentication
+- [ ] Secure credential saving
+- [ ] More detailed historical charts
+- [ ] Notifications for critical thresholds
+- [ ] Multi-server support
 - [ ] Dark mode
-- [ ] Export dei dati in CSV/PDF
+- [ ] Data export to CSV/PDF
 
 ## Troubleshooting
 
-### Errore di connessione
-- Verifica che il server sia raggiungibile
-- Controlla che SSH sia abilitato sul server
-- Verifica username e password
-- Controlla che la porta SSH sia corretta
+### Connection Error
+- Verify that the server is reachable
+- Check that SSH is enabled on the server
+- Verify username and password
+- Check that the SSH port is correct
 
-### Dati non aggiornati
-- Usa il pulsante refresh manuale
-- Controlla la connessione di rete
-- Verifica che i comandi siano supportati dal tuo server
+### Data not updating
+- Use the manual refresh button
+- Check your network connection
+- Verify that the commands are supported by your server
 
-## Licenza
+## License
 
-Questo progetto è distribuito con licenza MIT.
+This project is distributed under the MIT license.

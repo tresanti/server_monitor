@@ -31,11 +31,43 @@ dependencies:
   # Internazionalizzazione
   intl: ^0.19.0
 
+  flutter_launcher_icons: "^0.13.1"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.1
 
+flutter_launcher_icons:
+  # Aggiungi un image_path generico qui, che verrà usato per Android e iOS
+  # se non specificato diversamente. Assicurati che questo file esista.
+  image_path: "assets/icon/ios_1024.png" # Esempio: usa questa icona per Android, iOS e come fallback
+
+  android: true # Genera per Android
+  ios: true     # Genera per iOS
+
+  windows:
+    generate: true
+    # Puoi omettere image_path qui se "assets/icon/app_icon.png" va bene anche per Windows
+    # Altrimenti, se vuoi un'icona specifica per Windows, lascialo:
+    image_path: "assets/icon/windows_256.png"
+    icon_size: 256
+
+  macos:
+    generate: true
+    # Puoi omettere image_path qui se "assets/icon/app_icon.png" va bene anche per macOS
+    # Altrimenti, lascialo:
+    image_path: "assets/icon/ios_1024.png"
+
+  linux:
+    generate: true
+    # Puoi omettere image_path qui se "assets/icon/app_icon.png" va bene anche per Linux
+    # Altrimenti, lascialo:
+    image_path: "assets/icon/linux_256.png"
+
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/icons/ # La tua cartella per le icone SVG, se ne usi
+    - assets/icon/  # La cartella dove hai messo app_icon.png
