@@ -179,8 +179,7 @@ class SSHService {
     if (match != null) {
       final value = double.parse(match.group(1)!);
       final unit = match.group(2) ?? '';
-      // ignore: avoid_print
-          print('size: $value $unit');
+      
       switch (unit) {
         case 'K':
           return value / 1024; // Converti in GB
@@ -188,9 +187,7 @@ class SSHService {
           return value / 1024; // Converti in GB
         case 'G':
           return value;
-        case 'T':
-          // ignore: avoid_print
-          print('size: $value T e in GB: ${value * 1024}');
+        case 'T':        
           return value * 1024; // Converti in GB
         default:
           return value / (1024 * 1024 * 1024); // Assumo byte, converti in GB
