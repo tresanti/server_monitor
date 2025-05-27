@@ -1,0 +1,5 @@
+C:\server_monitor\windows\runner\flutter_window.cpp;C:\server_monitor\build\windows\x64\runner\server_monitor.dir\Release\flutter_window.obj
+C:\server_monitor\windows\runner\main.cpp;C:\server_monitor\build\windows\x64\runner\server_monitor.dir\Release\main.obj
+C:\server_monitor\windows\runner\utils.cpp;C:\server_monitor\build\windows\x64\runner\server_monitor.dir\Release\utils.obj
+C:\server_monitor\windows\runner\win32_window.cpp;C:\server_monitor\build\windows\x64\runner\server_monitor.dir\Release\win32_window.obj
+C:\server_monitor\windows\flutter\generated_plugin_registrant.cc;C:\server_monitor\build\windows\x64\runner\server_monitor.dir\Release\generated_plugin_registrant.obj

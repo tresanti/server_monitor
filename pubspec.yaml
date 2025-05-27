@@ -29,7 +29,7 @@ dependencies:
   flutter_spinkit: ^5.2.0
   
   # Internazionalizzazione
-  intl: ^0.19.0
+  intl: ^0.20.2
 
   flutter_launcher_icons: "^0.13.1"
 

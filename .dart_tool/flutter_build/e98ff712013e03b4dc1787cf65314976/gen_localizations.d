@@ -1,0 +1,1 @@
+ C:\\server_monitor\\lib/gen_l10n\\app_localizations_en.dart C:\\server_monitor\\lib/gen_l10n\\app_localizations_it.dart C:\\server_monitor\\lib/gen_l10n\\app_localizations.dart:  C:\\server_monitor\\l10n.yaml C:\\server_monitor\\lib/l10n\\app_en.arb C:\\server_monitor\\lib/l10n\\app_it.arb

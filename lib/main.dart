@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'services/server_provider.dart';
 import 'services/saved_servers_service.dart';
 import 'screens/login_screen.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '../gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
